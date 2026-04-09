@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/pccd/static/css/main.db598dd9.css",
+    "main.js": "/pccd/static/js/main.493021c9.js",
+    "static/js/453.bf06bff9.chunk.js": "/pccd/static/js/453.bf06bff9.chunk.js",
+    "index.html": "/pccd/index.html",
+    "main.db598dd9.css.map": "/pccd/static/css/main.db598dd9.css.map",
+    "main.493021c9.js.map": "/pccd/static/js/main.493021c9.js.map",
+    "453.bf06bff9.chunk.js.map": "/pccd/static/js/453.bf06bff9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.db598dd9.css",
+    "static/js/main.493021c9.js"
+  ]
+}
