@@ -45,7 +45,7 @@ function App() {
   const [data, setData] = useState([]);
   const [dataCopy, setDataCopy] = useState([]);
   const [showZipBreakdown, setShowZipBreakdown] = useState(true);
-  const [startDate, setStartDate] = useState(dayjs().subtract(90, "day").format("MM-DD-YYYY"));
+  const [startDate, setStartDate] = useState(dayjs().subtract(120, "day").format("MM-DD-YYYY"));
   const [endDate, setEndDate] = useState(dayjs().format("MM-DD-YYYY"));
 
 
@@ -81,7 +81,7 @@ function App() {
         const filteredData = results.data.filter((item) => {
           const itemDate = dayjs(item.date_);
           const currentDate = dayjs();
-          return currentDate.diff(itemDate, "day") <= 90;
+          return currentDate.diff(itemDate, "day") <=120;
         });
 
 
