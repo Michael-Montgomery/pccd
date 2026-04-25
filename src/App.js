@@ -221,7 +221,8 @@ function App() {
 
 
       </div>
-      <div ref={pdfRef} className='report-wrapper'>
+      {showExportButton && (
+        <div ref={pdfRef} className='report-wrapper'>
         <h2 className='report-title'>PCCD Quarterly Reporting (gun violence stats)</h2>
         <p className='report-dates'>{`Report for dates: ${startDate} - ${endDate}`}</p>
         <div className='data-list-wrapper'>
@@ -295,6 +296,8 @@ function App() {
         </div>
 
       </div>
+      )}
+      
 
     </>
   );
