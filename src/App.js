@@ -47,6 +47,7 @@ function App() {
   const [showZipBreakdown, setShowZipBreakdown] = useState(true);
   const [startDate, setStartDate] = useState(dayjs().subtract(120, "day").format("MM-DD-YYYY"));
   const [endDate, setEndDate] = useState(dayjs().format("MM-DD-YYYY"));
+  const [showExportButton, setShowExportButton] = useState(false);
 
 
   const pdfRef = useRef();
@@ -81,11 +82,8 @@ function App() {
         const filteredData = results.data.filter((item) => {
           const itemDate = dayjs(item.date_);
           const currentDate = dayjs();
-          return currentDate.diff(itemDate, "day") <=120;
+          return currentDate.diff(itemDate, "day") <= 120;
         });
-
-
-
         const enrichedData = filteredData.map((item) => {
           const lat = parseFloat(item.lat);
           const lng = parseFloat(item.lng);
@@ -110,6 +108,7 @@ function App() {
         });
         console.log("Enriched Data:", enrichedData);
         setData(enrichedData);
+        setShowExportButton(true);
       },
     });
   };
@@ -131,8 +130,6 @@ function App() {
 
   return (
     <>
-
-
 
       <div className='controls-wrapper'>
         <div className='file-upload-wrapper'>
@@ -193,6 +190,7 @@ function App() {
                   const itemDate = dayjs(item.date_);
                   return itemDate.isBefore(selectedDate) || itemDate.isSame(selectedDate, 'day');
                 });
+                console.log(`Filtered Data for end date ${selectedDate.format("MM-DD-YYYY")}:`, filteredData);
                 setData(filteredData);
               }
             }}
@@ -215,10 +213,11 @@ function App() {
           <label htmlFor='zipBreakdown'>Show ZIP Code Breakdown</label>
         </div>
 
-        <button className='export-btn' onClick={handleDownload}>Export</button>
-
-
-
+        {
+          showExportButton && (
+            <button className='export-btn' onClick={handleDownload}>Export</button>
+          )
+        }
 
 
       </div>
